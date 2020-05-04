@@ -23,9 +23,23 @@ class FishController < ApplicationController
         )
         if @fish.save
             # redirect_to 'http://localhost:3001/'
-            render json: @fishes
+            render json: @fish
         else 
             render status: 422
+        end
+    end
+
+    def update 
+        if @fish.update(
+            species_name: params[:species_name],
+            scientific_name: params[:scientific_name],
+            habitat: params[:habitat],
+            location: params[:location],
+            species_illustration_photo: params[:species_illustration_photo]
+          )
+          render json: @fish 
+        else
+          render status: 422
         end
     end
 
