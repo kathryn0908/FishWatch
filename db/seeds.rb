@@ -18,9 +18,12 @@ def get_fish_species_name
     
     fishes = fishdata
     
-    fishes.map do |fish|
-    species_name = fish["Species Name"]
-    species_name
+    fishes.each_with_index do |fish, index|
+        if index < 25
+        species_name = fish["Species Name"]
+        species_name
+        # byebug
+        end
     end
 end
 
@@ -30,9 +33,11 @@ def get_fish_scientific_name
     
     fishes = fishdata
     
-    fishes.map do |fish|
-    scientific_name = fish["Scientific Name"]
-    scientific_name
+    fishes.each_with_index do |fish, index|
+        if index < 25
+        scientific_name = fish["Scientific Name"]
+        scientific_name
+        end
     end
 end
 
@@ -42,10 +47,11 @@ def get_fish_location
     
     fishes = fishdata
     
-    fishes.map do |fish|
-    location = fish["Location"]
-    location
-        byebug
+    fishes.each_with_index do |fish, index|
+        if index < 25
+        location = fish["Location"]
+        location
+        end
     end
 end 
 
@@ -55,10 +61,11 @@ def get_fish_habitat
     
     fishes = fishdata
     
-    fishes.map do |fish|
-    habitat = fish["Habitat"]
-    habitat
-        byebug
+    fishes.each_with_index do |fish, index|
+        if index < 25
+        habitat = fish["Habitat"]
+        habitat
+        end
     end
 end
 
@@ -68,13 +75,17 @@ def get_fish_illustration
     
     fishes = fishdata
     
-    fishes.map do |fish|
-    illustration = fish["Species Illustration Photo"]
-    illustration
+    fishes.each_with_index do |fish, index|
+        if index < 25
+        illustration = fish["Species Illustration Photo"]
+        illustration
+        end
     end
 end
 
-get_fish_illustration
+
 get_fish_habitat
 get_fish_species_name
 get_fish_scientific_name
+get_fish_location
+get_fish_illustration
