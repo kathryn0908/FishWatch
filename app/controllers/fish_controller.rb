@@ -1,12 +1,13 @@
 class FishController < ApplicationController
     def index
         if params[:search]
-            @fish = Fish.where("name LIKE ?", "%#{params[:search]}%")
+            @fish = Fish.where("species_name LIKE ?", "%#{params[:search]}%")
             render json: @fish
           else
             @fish = Fish.all 
             render json: @fish
     end
+end
 
     def show
         @fish = Fish.find(params[:id])
@@ -55,3 +56,4 @@ class FishController < ApplicationController
         end
     end
 end
+
