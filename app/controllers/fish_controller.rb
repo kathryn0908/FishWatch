@@ -1,7 +1,11 @@
 class FishController < ApplicationController
     def index
-        @fishes = Fish.all 
-        render json: @fishes
+        if params[:search]
+            @fish = Fish.where("name LIKE ?", "%#{params[:search]}%")
+            render json: @fish
+          else
+            @fish = Fish.all 
+            render json: @fish
     end
 
     def show
@@ -22,8 +26,7 @@ class FishController < ApplicationController
             species_illustration_photo: params[:species_illustration_photo]
         )
         if @fish.save
-            # redirect_to 'http://localhost:3001/'
-            render json: @fish
+            redirect_to `http://localhost:3001/`
         else 
             render status: 422
         end
