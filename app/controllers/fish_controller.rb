@@ -1,11 +1,13 @@
 class FishController < ApplicationController
     def index
+      # byebug
         if params[:search]
             @fish = Fish.where("species_name LIKE ?", "%#{params[:search]}%")
             render json: @fish
           else
             @fish = Fish.all 
             render json: @fish
+          end
     end
 end
 

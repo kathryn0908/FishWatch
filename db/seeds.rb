@@ -25,7 +25,7 @@ def get_fish
         
     
     new_fish_data.each_with_index do |fish, index|
-        if index < 25
+        if index < 50
         Fish.create(
             species_name: fish[:species_name],
             scientific_name: fish[:scientific_name],
