@@ -2,7 +2,7 @@
 require 'pry'
 require 'rest-client'
 require 'json'
-# require_relative '/MOD2_PROJECT/fish_api/app/controllers/fish_controller.rb'
+
 
 
 def get_fish
@@ -25,7 +25,7 @@ def get_fish
         
     
     new_fish_data.each_with_index do |fish, index|
-        if index < 50
+        if index < 100
         Fish.create(
             species_name: fish[:species_name],
             scientific_name: fish[:scientific_name],
@@ -42,5 +42,4 @@ end
     get_fish
 
 
-# Octopus = Fish.create( species_name:"Octopus", scientific_name:"Scientific Octopus", habitat:"the Ocean", location:"Around",
-#      species_illustration_photo:"Image here")
+
