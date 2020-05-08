@@ -28,7 +28,7 @@ class FishController < ApplicationController
             species_illustration_photo: params[:species_illustration_photo]
         )
         if @fish.save
-            redirect_to `http://localhost:3001/`
+            redirect_to 'http://localhost:3001/'
         else 
             render status: 422
         end
